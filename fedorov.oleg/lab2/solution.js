@@ -3,6 +3,6 @@ export function countVowels(str) {
     return 0;
   }
   const match = str.match(/[aeiou]/gi);
-  
+
   return match ? match.length : 0;
 }
