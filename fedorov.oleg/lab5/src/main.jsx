@@ -10,15 +10,9 @@ const MOVIES = [
 ];
 
 function App() {
-  const [view, setView] = useState('list');
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(MOVIES[0]);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState({});
-
-  const handleSelectMovie = (movie) => {
-    setSelectedMovie(movie);
-    setView('form');
-    setErrors({});
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,33 +41,50 @@ function App() {
       return;
     }
 
-    setView('success');
+    setIsSuccess(true);
   };
 
+  if (isSuccess) {
+    return (
+      <div className="container">
+        <h2>Подтверждение бронирования</h2>
+        <div className="success-card" data-testid="success-message">
+          <p>
+            Билеты на фильм <strong>«{selectedMovie?.title}»</strong> успешно
+            забронированы!
+          </p>
+          <button
+            className="primary-btn mt-15"
+            onClick={() => setIsSuccess(false)}
+          >
+            Сделать новое бронирование
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="container">
-      <div style={{display: view === 'list' ? 'block' : 'none'}}>
-        <h1>Афиша фильмов</h1>
+    <div className="container layout">
+      <div className="movies-section">
+        <h2>Выберите фильм</h2>
         <div className="movie-grid">
           {MOVIES.map((movie) => (
             <div
               key={movie.id}
-              className="movie-card"
+              className={`movie-card ${selectedMovie.id === movie.id ? 'selected' : ''}`}
               data-testid="movie-card"
-              onClick={() => handleSelectMovie(movie)}
+              onClick={() => setSelectedMovie(movie)}
             >
               <div className="poster">{movie.poster}</div>
               <h3>{movie.title}</h3>
-              <button type="button" className="primary-btn">
-                Выбрать сеанс
-              </button>
             </div>
           ))}
         </div>
       </div>
 
-      <div style={{display: view === 'form' ? 'block' : 'none'}}>
-        <h2>Бронирование: {selectedMovie ? selectedMovie.title : ''}</h2>
+      <div className="form-section">
+        <h2>Бронирование: {selectedMovie.title}</h2>
         <form
           onSubmit={handleSubmit}
           noValidate
@@ -156,33 +167,8 @@ function App() {
             >
               Забронировать
             </button>
-            <button
-              type="button"
-              className="secondary-btn"
-              onClick={() => setView('list')}
-            >
-              Назад
-            </button>
           </div>
         </form>
-      </div>
-
-      <div style={{display: view === 'success' ? 'block' : 'none'}}>
-        <h2>Подтверждение бронирования</h2>
-        <div className="success-card" data-testid="success-message">
-          <p>
-            Билеты на фильм{' '}
-            <strong>«{selectedMovie ? selectedMovie.title : ''}»</strong>{' '}
-            успешно забронированы!
-          </p>
-          <button
-            type="button"
-            className="primary-btn mt-15"
-            onClick={() => setView('list')}
-          >
-            На главную
-          </button>
-        </div>
       </div>
     </div>
   );
