@@ -21,9 +21,10 @@ export class Product {
   }
 }
 
-export function groupByCategory(products) {
+export function groupProductsByCategory(products) {
   return products.reduce((acc, product) => {
-    product.categories.forEach((category) => {
+    const cats = product.categories || [];
+    cats.forEach((category) => {
       acc[category] = acc[category] || [];
       acc[category].push(product);
     });
@@ -32,13 +33,14 @@ export function groupByCategory(products) {
 }
 
 export function getUniqueCategories(products) {
-  return [...new Set(products.flatMap((p) => p.categories))];
+  return [...new Set(products.flatMap((p) => p.categories || []))];
 }
 
 export function groupByPriceRanges(products) {
   return products.reduce((acc, product) => {
     const step = 1000;
-    const rangeStart = Math.floor(product.price / step) * step;
+    const price = product.price || 0;
+    const rangeStart = Math.floor(price / step) * step;
     const key = `${rangeStart}-${rangeStart + step}`;
     acc[key] = acc[key] || [];
     acc[key].push(product);
@@ -47,9 +49,9 @@ export function groupByPriceRanges(products) {
 }
 
 export function getProductsByCategory(products, category) {
-  return products.filter((p) => p.categories.includes(category));
+  return products.filter((p) => (p.categories || []).includes(category));
 }
 
 export function getProductsAbovePrice(products, minPrice) {
-  return products.filter((p) => p.price > minPrice);
+  return products.filter((p) => (p.price || 0) > minPrice);
 }

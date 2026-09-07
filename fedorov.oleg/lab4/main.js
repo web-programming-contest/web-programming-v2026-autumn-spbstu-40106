@@ -2,12 +2,16 @@ import {Product} from './model.js';
 
 let products = [];
 
-const saved = localStorage.getItem('products');
-if (saved) {
-  const parsed = JSON.parse(saved);
-  products = parsed.map(
-    (p) => new Product(p.id, p.name, p.categories, p.price),
-  );
+try {
+  const saved = localStorage.getItem('products');
+  if (saved) {
+    const parsed = JSON.parse(saved);
+    products = parsed.map(
+      (p) => new Product(p.id, p.name, p.categories, p.price),
+    );
+  }
+} catch (e) {
+  console.error('Failed to parse localStorage', e);
 }
 
 const listElement = document.querySelector('[data-testid="entity-list"]');
@@ -24,32 +28,66 @@ function renderList() {
     const card = document.createElement('div');
     card.setAttribute('data-testid', 'entity-card');
     card.className = 'card';
-    card.innerHTML = `
-      <h3>${p.name} (#${p.id})</h3>
-      <p>Цена: ${p.price}</p>
-      <p>Категории: ${Array.isArray(p.categories) ? p.categories.join(', ') : ''}</p>
-      <button data-testid="delete-entity" data-id="${p.id}">Удалить товар</button>
-    `;
+
+    const title = document.createElement('h3');
+    title.textContent = `${p.name || 'Без названия'} (#${p.id || '?'})`;
+    card.appendChild(title);
+
+    const priceText = document.createElement('p');
+    priceText.textContent = `Цена: ${p.price || 0}`;
+    card.appendChild(priceText);
+
+    const catsText = document.createElement('p');
+    catsText.textContent = `Категории: ${Array.isArray(p.categories) ? p.categories.join(', ') : ''}`;
+    card.appendChild(catsText);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('data-testid', 'delete-entity');
+    deleteBtn.setAttribute('data-id', p.id);
+    deleteBtn.type = 'button';
+    deleteBtn.textContent = 'Удалить';
+    card.appendChild(deleteBtn);
+
     listElement.appendChild(card);
   });
 }
 
+const addEntityAsync = (product) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      products.push(product);
+      saveAndRender();
+      resolve();
+    }, 150);
+  });
+};
+
+const deleteEntityAsync = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      products = products.filter((p) => String(p.id) !== String(id));
+      saveAndRender();
+      resolve();
+    }, 150);
+  });
+};
+
 formElement.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(formElement);
-  const id = Number(formData.get('id'));
+
+  const id = formData.get('id');
   const name = formData.get('name');
-  const price = Number(formData.get('price'));
+  const price = Number(formData.get('price')) || 0;
+
   const categoriesStr = formData.get('categories');
   const categories = categoriesStr
     ? categoriesStr.split(',').map((c) => c.trim())
     : [];
 
-  setTimeout(() => {
-    products.push(new Product(id, name, categories, price));
-    saveAndRender();
+  addEntityAsync(new Product(id, name, categories, price)).then(() => {
     formElement.reset();
-  }, 500);
+  });
 });
 
 listElement.addEventListener('click', (e) => {
@@ -57,11 +95,8 @@ listElement.addEventListener('click', (e) => {
     e.target.hasAttribute('data-testid') &&
     e.target.getAttribute('data-testid') === 'delete-entity'
   ) {
-    const id = Number(e.target.getAttribute('data-id'));
-    setTimeout(() => {
-      products = products.filter((p) => p.id !== id);
-      saveAndRender();
-    }, 500);
+    const id = e.target.getAttribute('data-id');
+    deleteEntityAsync(id);
   }
 });
 
