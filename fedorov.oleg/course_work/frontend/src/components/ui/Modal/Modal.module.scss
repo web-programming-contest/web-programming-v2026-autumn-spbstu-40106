@@ -1,0 +1,39 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include flex-center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: $color-text-light;
+  transition: color $transition-speed;
+
+  &:hover {
+    color: $color-text;
+  }
+}

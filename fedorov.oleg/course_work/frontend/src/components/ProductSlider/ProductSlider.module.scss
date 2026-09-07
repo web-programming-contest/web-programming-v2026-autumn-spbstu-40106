@@ -1,0 +1,52 @@
+.sliderSection {
+  margin-bottom: 40px;
+
+  .header {
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+
+  .grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #999;
+    }
+
+    > * {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+    }
+  }
+
+  .emptyState {
+    color: #888;
+    padding: 20px 0;
+    font-size: 15px;
+  }
+}

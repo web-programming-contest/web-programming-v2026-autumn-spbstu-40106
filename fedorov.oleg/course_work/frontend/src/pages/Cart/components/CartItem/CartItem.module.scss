@@ -1,0 +1,80 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: $border-radius;
+  border: 1px solid #e5e5e5;
+}
+
+.itemImage {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.itemTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-text;
+  margin: 0;
+}
+
+.itemPrice {
+  font-size: 14px;
+  color: $color-text-light;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f8f9fa;
+  padding: 6px 12px;
+  border-radius: 6px;
+
+  button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.itemTotal {
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-text;
+  min-width: 100px;
+  text-align: right;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: $color-text-light;
+  cursor: pointer;
+  padding: 8px;
+  transition: color $transition-speed;
+
+  &:hover {
+    color: $color-error;
+  }
+}

@@ -1,0 +1,39 @@
+.summaryCard {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: $border-radius;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 12px;
+  }
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: $color-text-light;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-text;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 16px;
+}
+
+.checkoutBtn {
+  width: 100%;
+  margin-top: 8px;
+}

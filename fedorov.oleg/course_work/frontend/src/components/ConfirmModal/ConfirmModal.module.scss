@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0;
+}
+
+.message {
+  font-size: 14px;
+  color: $color-text-light;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+
+  button {
+    width: 140px;
+  }
+}
