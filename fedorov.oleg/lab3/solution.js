@@ -8,6 +8,6 @@ export function shuffleArray(arr) {
     const j = Math.floor(Math.random() * (i + 1));
     [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
   }
-  
+
   return newArr;
 }
