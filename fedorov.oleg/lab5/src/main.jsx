@@ -50,27 +50,30 @@ function App() {
     setView('success');
   };
 
-  if (view === 'success') {
-    return (
-      <div className="container">
-        <h2>Подтверждение бронирования</h2>
-        <div className="success-card" data-testid="success-message">
-          <p>
-            Билеты на фильм <strong>«{selectedMovie?.title}»</strong> успешно
-            забронированы!
-          </p>
-          <button className="primary-btn mt-15" onClick={() => setView('list')}>
-            На главную
-          </button>
+  return (
+    <div className="container">
+      <div style={{display: view === 'list' ? 'block' : 'none'}}>
+        <h1>Афиша фильмов</h1>
+        <div className="movie-grid">
+          {MOVIES.map((movie) => (
+            <div
+              key={movie.id}
+              className="movie-card"
+              data-testid="movie-card"
+              onClick={() => handleSelectMovie(movie)}
+            >
+              <div className="poster">{movie.poster}</div>
+              <h3>{movie.title}</h3>
+              <button type="button" className="primary-btn">
+                Выбрать сеанс
+              </button>
+            </div>
+          ))}
         </div>
       </div>
-    );
-  }
 
-  if (view === 'form') {
-    return (
-      <div className="container">
-        <h2>Бронирование: {selectedMovie?.title}</h2>
+      <div style={{display: view === 'form' ? 'block' : 'none'}}>
+        <h2>Бронирование: {selectedMovie ? selectedMovie.title : ''}</h2>
         <form
           onSubmit={handleSubmit}
           noValidate
@@ -163,25 +166,23 @@ function App() {
           </div>
         </form>
       </div>
-    );
-  }
 
-  return (
-    <div className="container">
-      <h1>Афиша фильмов</h1>
-      <div className="movie-grid">
-        {MOVIES.map((movie) => (
-          <div
-            key={movie.id}
-            className="movie-card"
-            data-testid="movie-card"
-            onClick={() => handleSelectMovie(movie)}
+      <div style={{display: view === 'success' ? 'block' : 'none'}}>
+        <h2>Подтверждение бронирования</h2>
+        <div className="success-card" data-testid="success-message">
+          <p>
+            Билеты на фильм{' '}
+            <strong>«{selectedMovie ? selectedMovie.title : ''}»</strong>{' '}
+            успешно забронированы!
+          </p>
+          <button
+            type="button"
+            className="primary-btn mt-15"
+            onClick={() => setView('list')}
           >
-            <div className="poster">{movie.poster}</div>
-            <h3>{movie.title}</h3>
-            <button className="primary-btn">Выбрать сеанс</button>
-          </div>
-        ))}
+            На главную
+          </button>
+        </div>
       </div>
     </div>
   );
