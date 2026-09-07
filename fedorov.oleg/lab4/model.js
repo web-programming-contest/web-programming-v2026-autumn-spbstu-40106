@@ -36,7 +36,7 @@ export function getUniqueCategories(products) {
   return [...new Set(products.flatMap((p) => p.categories || []))];
 }
 
-export function groupByPriceRanges(products) {
+export function groupProductsByPriceRange(products) {
   return products.reduce((acc, product) => {
     const step = 1000;
     const price = product.price || 0;
