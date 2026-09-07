@@ -134,7 +134,7 @@ select:focus {
   margin-top: 15px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .layout {
     grid-template-columns: 1fr;
   }
