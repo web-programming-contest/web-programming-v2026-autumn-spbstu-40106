@@ -54,7 +54,7 @@ function App() {
     return (
       <div className="container">
         <h2>Подтверждение бронирования</h2>
-        <div className="success-card">
+        <div className="success-card" data-testid="success-message">
           <p>
             Билеты на фильм <strong>«{selectedMovie?.title}»</strong> успешно
             забронированы!
@@ -71,23 +71,55 @@ function App() {
     return (
       <div className="container">
         <h2>Бронирование: {selectedMovie?.title}</h2>
-        <form onSubmit={handleSubmit} noValidate className="booking-form">
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="booking-form"
+          data-testid="booking-form"
+        >
           <div className="form-group">
             <label>Имя *</label>
-            <input name="name" type="text" placeholder="Иван" />
-            {errors.name && <span className="error">{errors.name}</span>}
+            <input
+              name="name"
+              type="text"
+              placeholder="Иван"
+              data-testid="booking-name"
+            />
+            {errors.name && (
+              <span className="error" data-testid="error-name">
+                {errors.name}
+              </span>
+            )}
           </div>
 
           <div className="form-group">
             <label>Email *</label>
-            <input name="email" type="email" placeholder="test@test.ru" />
-            {errors.email && <span className="error">{errors.email}</span>}
+            <input
+              name="email"
+              type="email"
+              placeholder="test@test.ru"
+              data-testid="booking-email"
+            />
+            {errors.email && (
+              <span className="error" data-testid="error-email">
+                {errors.email}
+              </span>
+            )}
           </div>
 
           <div className="form-group">
             <label>Телефон *</label>
-            <input name="phone" type="tel" placeholder="+79991234567" />
-            {errors.phone && <span className="error">{errors.phone}</span>}
+            <input
+              name="phone"
+              type="tel"
+              placeholder="+79991234567"
+              data-testid="booking-phone"
+            />
+            {errors.phone && (
+              <span className="error" data-testid="error-phone">
+                {errors.phone}
+              </span>
+            )}
           </div>
 
           <div className="form-group">
@@ -114,7 +146,11 @@ function App() {
           </div>
 
           <div className="buttons">
-            <button type="submit" className="primary-btn">
+            <button
+              type="submit"
+              className="primary-btn"
+              data-testid="booking-submit"
+            >
               Забронировать
             </button>
             <button
@@ -138,6 +174,7 @@ function App() {
           <div
             key={movie.id}
             className="movie-card"
+            data-testid="movie-card"
             onClick={() => handleSelectMovie(movie)}
           >
             <div className="poster">{movie.poster}</div>
