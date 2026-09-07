@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: white;
   padding: 30px;
@@ -22,6 +22,13 @@ h1,
 h2 {
   color: #2c3e50;
   margin-top: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
 .movie-grid {
@@ -47,6 +54,12 @@ h2 {
   box-shadow: 0 8px 16px rgb(0 0 0 / 0.1);
 }
 
+.movie-card.selected {
+  border-color: #3498db;
+  background-color: #ebf5fb;
+  box-shadow: 0 4px 8px rgb(52 152 219 / 0.2);
+}
+
 .poster {
   font-size: 64px;
   margin-bottom: 15px;
@@ -54,7 +67,6 @@ h2 {
 
 .booking-form {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 15px;
 }
 
@@ -95,17 +107,13 @@ select:focus {
   margin-top: 10px;
 }
 
-.primary-btn,
-.secondary-btn {
+.primary-btn {
   padding: 12px 20px;
   border: none;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
   font-weight: 500;
-}
-
-.primary-btn {
   background-color: #3498db;
   color: white;
   flex: 1;
@@ -113,15 +121,6 @@ select:focus {
 
 .primary-btn:hover {
   background-color: #2980b9;
-}
-
-.secondary-btn {
-  background-color: #ecf0f1;
-  color: #7f8c8d;
-}
-
-.secondary-btn:hover {
-  background-color: #bdc3c7;
 }
 
 .success-card {
@@ -133,4 +132,10 @@ select:focus {
 
 .mt-15 {
   margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
 }

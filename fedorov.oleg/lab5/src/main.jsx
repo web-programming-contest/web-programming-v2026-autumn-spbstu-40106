@@ -44,26 +44,6 @@ function App() {
     setIsSuccess(true);
   };
 
-  if (isSuccess) {
-    return (
-      <div className="container">
-        <h2>Подтверждение бронирования</h2>
-        <div className="success-card" data-testid="success-message">
-          <p>
-            Билеты на фильм <strong>«{selectedMovie?.title}»</strong> успешно
-            забронированы!
-          </p>
-          <button
-            className="primary-btn mt-15"
-            onClick={() => setIsSuccess(false)}
-          >
-            Сделать новое бронирование
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="container layout">
       <div className="movies-section">
@@ -74,7 +54,10 @@ function App() {
               key={movie.id}
               className={`movie-card ${selectedMovie.id === movie.id ? 'selected' : ''}`}
               data-testid="movie-card"
-              onClick={() => setSelectedMovie(movie)}
+              onClick={() => {
+                setSelectedMovie(movie);
+                setIsSuccess(false);
+              }}
             >
               <div className="poster">{movie.poster}</div>
               <h3>{movie.title}</h3>
@@ -85,11 +68,13 @@ function App() {
 
       <div className="form-section">
         <h2>Бронирование: {selectedMovie.title}</h2>
+
         <form
           onSubmit={handleSubmit}
           noValidate
           className="booking-form"
           data-testid="booking-form"
+          style={{display: isSuccess ? 'none' : 'grid'}}
         >
           <div className="form-group">
             <label>Имя *</label>
@@ -169,6 +154,24 @@ function App() {
             </button>
           </div>
         </form>
+
+        <div
+          className="success-card"
+          data-testid="booking-confirmation"
+          style={{display: isSuccess ? 'block' : 'none'}}
+        >
+          <p>
+            Билеты на фильм <strong>«{selectedMovie.title}»</strong> успешно
+            забронированы!
+          </p>
+          <button
+            type="button"
+            className="primary-btn mt-15"
+            onClick={() => setIsSuccess(false)}
+          >
+            Сделать новое бронирование
+          </button>
+        </div>
       </div>
     </div>
   );
