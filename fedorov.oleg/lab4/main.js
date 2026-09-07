@@ -1,11 +1,13 @@
-import { Product } from './model.js';
+import {Product} from './model.js';
 
 let products = [];
 
 const saved = localStorage.getItem('products');
 if (saved) {
   const parsed = JSON.parse(saved);
-  products = parsed.map((p) => new Product(p.id, p.name, p.price, p.categories));
+  products = parsed.map(
+    (p) => new Product(p.id, p.name, p.price, p.categories),
+  );
 }
 
 const listElement = document.querySelector('[data-testid="entity-list"]');
@@ -39,7 +41,9 @@ formElement.addEventListener('submit', (e) => {
   const name = formData.get('name');
   const price = Number(formData.get('price'));
   const categoriesStr = formData.get('categories');
-  const categories = categoriesStr ? categoriesStr.split(',').map((c) => c.trim()) : [];
+  const categories = categoriesStr
+    ? categoriesStr.split(',').map((c) => c.trim())
+    : [];
 
   setTimeout(() => {
     products.push(new Product(id, name, price, categories));
@@ -49,7 +53,10 @@ formElement.addEventListener('submit', (e) => {
 });
 
 listElement.addEventListener('click', (e) => {
-  if (e.target.hasAttribute('data-testid') && e.target.getAttribute('data-testid') === 'delete-entity') {
+  if (
+    e.target.hasAttribute('data-testid') &&
+    e.target.getAttribute('data-testid') === 'delete-entity'
+  ) {
     const id = Number(e.target.getAttribute('data-id'));
     setTimeout(() => {
       products = products.filter((p) => p.id !== id);
