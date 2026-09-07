@@ -6,7 +6,7 @@ const saved = localStorage.getItem('products');
 if (saved) {
   const parsed = JSON.parse(saved);
   products = parsed.map(
-    (p) => new Product(p.id, p.name, p.price, p.categories),
+    (p) => new Product(p.id, p.name, p.categories, p.price),
   );
 }
 
@@ -27,7 +27,7 @@ function renderList() {
     card.innerHTML = `
       <h3>${p.name} (#${p.id})</h3>
       <p>Цена: ${p.price}</p>
-      <p>Категории: ${p.categories.join(', ')}</p>
+      <p>Категории: ${Array.isArray(p.categories) ? p.categories.join(', ') : ''}</p>
       <button data-testid="delete-entity" data-id="${p.id}">Удалить товар</button>
     `;
     listElement.appendChild(card);
@@ -46,7 +46,7 @@ formElement.addEventListener('submit', (e) => {
     : [];
 
   setTimeout(() => {
-    products.push(new Product(id, name, price, categories));
+    products.push(new Product(id, name, categories, price));
     saveAndRender();
     formElement.reset();
   }, 500);

@@ -1,9 +1,9 @@
 export class Product {
-  constructor(id, name, price, categories = []) {
+  constructor(id, name, categories = [], price) {
     this.id = id;
     this.name = name;
-    this.price = price;
     this.categories = categories;
+    this.price = price;
   }
 
   addCategory(category) {
