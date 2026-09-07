@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flag {
+  position: relative;
+  width: 300px;
+  height: 180px;
+  background-color: #006a4e;
+  overflow: hidden;
+}
+
+.flag-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background-color: #f42a41;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
