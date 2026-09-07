@@ -10,7 +10,7 @@ export function sortByFrequency(arr) {
     count = count + 1;
 
     frequency.set(item, count);
-}
+  }
 
   const result = [...arr];
 
