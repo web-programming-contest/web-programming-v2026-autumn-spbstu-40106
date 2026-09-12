@@ -1,0 +1,95 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0;
+  }
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-text-light;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  color: $color-text;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all $transition-speed;
+
+  &.active {
+    background-color: #e8f1ff;
+    border-color: $color-primary;
+    color: $color-primary;
+    font-weight: 500;
+  }
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: $color-text;
+  user-select: none;
+
+  input[type='checkbox'] {
+    width: 18px;
+    height: 18px;
+    accent-color: $color-primary;
+    cursor: pointer;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 16px;
+}
+
+.totalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  span:first-child {
+    font-size: 14px;
+    color: $color-text-light;
+  }
+}
+
+.totalPrice {
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-text;
+}

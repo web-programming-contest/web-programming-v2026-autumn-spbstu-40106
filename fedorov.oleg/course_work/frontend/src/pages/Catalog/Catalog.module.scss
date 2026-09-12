@@ -1,0 +1,42 @@
+.catalogPage {
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-size: 32px;
+  color: $color-text;
+}
+
+.layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.emptyState {
+  padding: 64px 0;
+  text-align: center;
+  font-size: 18px;
+  color: $color-text-light;
+}

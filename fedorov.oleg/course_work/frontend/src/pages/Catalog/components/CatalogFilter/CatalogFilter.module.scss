@@ -1,0 +1,74 @@
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-text;
+    margin: 0;
+  }
+}
+
+.priceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: $color-text;
+  user-select: none;
+
+  input[type='checkbox'] {
+    width: 18px;
+    height: 18px;
+    accent-color: $color-primary;
+    cursor: pointer;
+  }
+
+  span {
+    transition: color $transition-speed;
+  }
+
+  &:hover span {
+    color: $color-primary;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.resetBtn {
+  background: none;
+  border: none;
+  color: $color-text-light;
+  font-size: 14px;
+  font-family: $font-primary;
+  cursor: pointer;
+  padding: 8px;
+  transition: color $transition-speed;
+
+  &:hover {
+    color: $color-error;
+  }
+}

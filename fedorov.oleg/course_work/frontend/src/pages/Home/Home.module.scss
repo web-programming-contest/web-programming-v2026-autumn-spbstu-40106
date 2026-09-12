@@ -1,0 +1,85 @@
+.homePage {
+  padding: 40px 0 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.promoBanner {
+  background: linear-gradient(90deg, #f0f4ff 0%, #e2ecff 100%);
+  border-radius: 16px;
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.promoContent {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.saleBadge {
+  background-color: $color-secondary;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.promoTitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: $color-text;
+  line-height: 1.2;
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.oldPrice {
+  font-size: 20px;
+  color: $color-text-light;
+  text-decoration: line-through;
+}
+
+.newPrice {
+  font-size: 32px;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.promoImage {
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.advantages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  background-color: #f8f9fa;
+  padding: 32px;
+  border-radius: $border-radius;
+  margin-top: 60px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-text;
+    margin: 0;
+  }
+}
