@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table tr:hover {
+  background-color: #d3d3d3;
+}
+
+thead th {
+  background-color: #2d2d2d;
+  color: #fff;
+}
+
+tfoot td {
+  background-color: #2d2d2d;
+  color: #fff;
+}
