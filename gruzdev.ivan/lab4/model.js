@@ -34,6 +34,14 @@ export class Game {
   removePlatform(platform) {
     this.#platforms = this.#platforms.filter((item) => item !== platform);
   }
+
+  toJSON() {
+    return {
+      title: this.#title,
+      platforms: [...this.#platforms],
+      releaseYear: this.#releaseYear,
+    };
+  }
 }
 
 export function groupGamesByReleaseYear(games) {
