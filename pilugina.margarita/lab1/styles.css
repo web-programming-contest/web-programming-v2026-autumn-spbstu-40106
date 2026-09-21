@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.content-box {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(196 204 210 / 0.4);
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 760px;
+  margin: 0;
+  color: rgb(66 74 80);
+  line-height: 1.5;
+}
+
+.text::before {
+  content: '';
+  float: right;
+  width: 300px;
+  height: 200px;
+  margin-left: 20px;
+}
