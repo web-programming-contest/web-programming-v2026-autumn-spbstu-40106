@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторная работа 4 — Игры и платформы</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <h1>Игры и платформы</h1>
+
+      <form class="game-form" data-testid="entity-form">
+        <label class="form-field">
+          Название игры
+          <input type="text" name="title" required />
+        </label>
+        <label class="form-field">
+          Год выпуска
+          <input type="number" name="releaseYear" required />
+        </label>
+        <button type="submit">Добавить игру</button>
+      </form>
+
+      <section class="game-list" data-testid="entity-list"></section>
+    </main>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
