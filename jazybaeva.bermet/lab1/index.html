@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторная работа 1 — Вариант 15</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Центрирование блока и изображения</h1>
+
+      <h2>Вариант 1 — Flexbox + float</h2>
+      <div class="container-flex">
+        <div class="content">
+          <img src="assets/IMG-20210328-WA0022.jpeg" alt="Пример изображения" />
+          <p>
+            Вариант 1 — Flexbox. Контейнер центрирует содержимое по обеим осям.
+            Изображение прижато вправо через <code>float: right</code>, поэтому
+            текст автоматически обтекает его слева и снизу.
+          </p>
+        </div>
+      </div>
+
+      <h2>Вариант 2 — абсолютное позиционирование</h2>
+      <div class="container-abs">
+        <img src="assets/IMG-20210328-WA0022.jpeg" alt="Пример изображения" />
+        <div class="content">
+          <p>
+            Вариант 2 — абсолютное позиционирование. Картинка вырвана из потока
+            и жёстко закреплена в правом верхнем углу контейнера (<code
+              >top</code
+            >
+            и <code>right</code>). Текст центрируется Flexbox-ом, а чтобы он не
+            наезжал на изображение, добавлен <code>padding-right</code>.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
