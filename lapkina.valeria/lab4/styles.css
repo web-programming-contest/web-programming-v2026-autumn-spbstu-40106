@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f3f5f9;
+  color: #202938;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.panel,
+.course-card {
+  padding: 20px;
+  border: 1px solid #dce2eb;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.course-form,
+.student-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex: 1 1 180px;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #aab5c5;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #202938;
+}
+
+button {
+  max-width: 100%;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #275dad;
+  color: #fff;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+button:hover {
+  background-color: #1d4786;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #e7a22b;
+  outline-offset: 3px;
+}
+
+.course-list {
+  display: grid;
+  gap: 16px;
+}
+
+.course-card {
+  min-width: 0;
+}
+
+.course-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.course-title {
+  margin: 0;
+}
+
+.course-meta {
+  color: #526174;
+}
+
+.student-list {
+  padding: 0;
+  list-style: none;
+}
+
+.student-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e9f0;
+}
+
+.student-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.delete-button {
+  background-color: #a52b39;
+}
+
+.delete-button:hover {
+  background-color: #80212c;
+}
+
+.status {
+  min-height: 24px;
+}
+
+.status-error {
+  color: #a52b39;
+}
+
+.empty-message {
+  color: #526174;
+}
+
+@media (width <= 480px) {
+  .page {
+    padding: 16px 12px;
+  }
+
+  .panel,
+  .course-card {
+    padding: 14px;
+  }
+
+  .course-form,
+  .student-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  label {
+    flex: auto;
+  }
+}

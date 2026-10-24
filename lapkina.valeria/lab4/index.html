@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Курсы и студенты — вариант 39</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <h1>Курсы и студенты</h1>
+      <p>Лабораторная работа №4 · Вариант 39</p>
+
+      <section class="panel" aria-labelledby="create-heading">
+        <h2 id="create-heading">Добавить курс</h2>
+
+        <form class="course-form" data-testid="entity-form">
+          <label>
+            ID курса
+            <input type="number" name="courseId" min="1" step="1" required />
+          </label>
+
+          <label>
+            Название курса
+            <input type="text" name="title" required />
+          </label>
+
+          <button type="submit">Добавить курс</button>
+        </form>
+      </section>
+
+      <p class="status" role="status" aria-live="polite"></p>
+
+      <section aria-labelledby="courses-heading">
+        <h2 id="courses-heading">Список курсов</h2>
+        <p class="empty-message">Пока нет курсов. Добавь первый!</p>
+        <div class="course-list" data-testid="entity-list"></div>
+      </section>
+    </main>
+  </body>
+</html>
