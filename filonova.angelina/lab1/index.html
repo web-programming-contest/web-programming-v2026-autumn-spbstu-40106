@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <h1>Форма регистрации</h1>
+
+      <form>
+        <div class="form-row">
+          <label for="first-name">Имя</label>
+          <input
+            id="first-name"
+            name="firstName"
+            type="text"
+            autocomplete="given-name"
+          />
+        </div>
+
+        <div class="form-row">
+          <label for="last-name">Фамилия</label>
+          <input
+            id="last-name"
+            name="lastName"
+            type="text"
+            autocomplete="family-name"
+          />
+        </div>
+
+        <div class="form-row">
+          <span class="form-label">Пол</span>
+
+          <div class="options">
+            <label>
+              <input name="gender" type="radio" value="male" />
+              Мужской
+            </label>
+
+            <label>
+              <input name="gender" type="radio" value="female" />
+              Женский
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <span class="form-label">Владение языками</span>
+
+          <div class="options">
+            <label>
+              <input name="languages[]" type="checkbox" value="russian" />
+              Русский
+            </label>
+
+            <label>
+              <input name="languages[]" type="checkbox" value="english" />
+              Английский
+            </label>
+
+            <label>
+              <input name="languages[]" type="checkbox" value="german" />
+              Немецкий
+            </label>
+
+            <label>
+              <input name="languages[]" type="checkbox" value="french" />
+              Французский
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" hidden>Отправить</button>
+      </form>
+    </main>
+  </body>
+</html>
