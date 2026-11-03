@@ -1,0 +1,76 @@
+/* Базовые стили для наглядности */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* 
+  Использование CSS Grid для разделения формы на две визуальные половины.
+  Первая колонка (1fr) - для лейблов.
+  Вторая колонка (1fr) - для полей ввода.
+*/
+.registration-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Две равные половины */
+  gap: 15px 20px; /* Отступы между строками и колонками */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+}
+
+/* Стилизация основных лейблов (слева) */
+.registration-form > label {
+  text-align: right; /* Прижимаем текст лейбла к правому краю (ближе к полю) */
+  padding-top: 8px; /* Выравнивание по вертикали с текстовым полем */
+  font-weight: bold;
+  color: #333;
+}
+
+/* Обертка для полей ввода (справа) */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Стили текстовых полей */
+.input-wrapper input[type='text'] {
+  width: 100%;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-wrapper input[type='text']:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+/* 
+  Стили для групп радиокнопок и чекбоксов.
+  Используем Flexbox для аккуратного вывода в столбик.
+*/
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Стили для внутренних лейблов (текст рядом с чекбоксами/радио) */
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal; /* Сбрасываем жирность от основного лейбла */
+  text-align: left;
+  cursor: pointer;
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form class="registration-form">
+      <!-- Поле: Имя -->
+      <label for="firstName">Имя:</label>
+      <div class="input-wrapper">
+        <input type="text" id="firstName" name="firstName" required />
+      </div>
+
+      <!-- Поле: Фамилия -->
+      <label for="lastName">Фамилия:</label>
+      <div class="input-wrapper">
+        <input type="text" id="lastName" name="lastName" required />
+      </div>
+
+      <!-- Поле: Пол (радиокнопки) -->
+      <label>Пол:</label>
+      <div class="input-wrapper radio-group">
+        <label
+          ><input type="radio" name="gender" value="male" required />
+          Мужской</label
+        >
+        <label
+          ><input type="radio" name="gender" value="female" /> Женский</label
+        >
+      </div>
+
+      <!-- Поле: Владение языками (чекбоксы, множественный выбор) -->
+      <label>Владение языками:</label>
+      <div class="input-wrapper checkbox-group">
+        <label
+          ><input type="checkbox" name="languages[]" value="english" />
+          Английский</label
+        >
+        <label
+          ><input type="checkbox" name="languages[]" value="russian" />
+          Русский</label
+        >
+        <label
+          ><input type="checkbox" name="languages[]" value="german" />
+          Немецкий</label
+        >
+        <label
+          ><input type="checkbox" name="languages[]" value="french" />
+          Французский</label
+        >
+        <label
+          ><input type="checkbox" name="languages[]" value="spanish" />
+          Испанский</label
+        >
+      </div>
+      <button type="submit">Отправить</button>
+    </form>
+  </body>
+</html>
