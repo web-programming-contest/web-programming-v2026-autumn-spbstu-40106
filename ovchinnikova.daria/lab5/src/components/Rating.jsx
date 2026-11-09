@@ -1,7 +1,6 @@
-import React from 'react';
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
-export default function Rating({initialRating, votes}) {
+export default function Rating({initialRating, votes, onVote}) {
   const [userRating, setUserRating] = useState(null);
   const [displayRating, setDisplayRating] = useState(initialRating);
 
@@ -20,6 +19,13 @@ export default function Rating({initialRating, votes}) {
     return () => clearTimeout(timer);
   }, [userRating, initialRating]);
 
+  const handleStarClick = (star) => {
+    setUserRating(star);
+    if (onVote) {
+      onVote(star);
+    }
+  };
+
   return (
     <div className="rating">
       <div className="rating-stars">
@@ -29,7 +35,7 @@ export default function Rating({initialRating, votes}) {
             type="button"
             data-testid="rating-star"
             className="rating-star"
-            onClick={() => setUserRating(star)}
+            onClick={() => handleStarClick(star)}
             aria-label={`Оценка ${star}`}
           >
             ★

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Book from './Book.jsx';
 import coverWarAndPeace from '../../assets/war_and_peace.jpg';
 import coverThreeInBoat from '../../assets/three_in_boat.jpg';
 import coverMartinIden from '../../assets/martin_iden.jpg';
 
-const BOOKS = [
+const INITIAL_BOOKS = [
   {
     id: 1,
     title: 'Война и мир',
@@ -38,10 +38,25 @@ const BOOKS = [
 ];
 
 export default function BookList() {
+  const [books, setBooks] = useState(INITIAL_BOOKS);
+
+  const handleVote = (bookId, newRating) => {
+    setBooks((prev) =>
+      prev.map((book) => {
+        if (book.id !== bookId) {
+          return book;
+        }
+        const newVotes = book.votes + 1;
+        const newAverage = (book.rating * book.votes + newRating) / newVotes;
+        return {...book, rating: newAverage, votes: newVotes};
+      }),
+    );
+  };
+
   return (
     <div className="book-list">
-      {BOOKS.map((book) => (
-        <Book key={book.id} book={book} />
+      {books.map((book) => (
+        <Book key={book.id} book={book} onVote={handleVote} />
       ))}
     </div>
   );
