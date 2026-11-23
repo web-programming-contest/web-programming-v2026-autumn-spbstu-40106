@@ -5,10 +5,9 @@
 :root {
   font-family: 'Segoe UI', Arial, sans-serif;
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   color: #242722;
   background: #f5f4ef;
   font-optical-sizing: auto;
@@ -32,7 +31,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
-#app {
+[data-testid='app'] {
   min-height: 100vh;
 }
 
@@ -46,12 +45,14 @@ a:focus-visible {
   --accent: #435c48;
   --accent-soft: #e5e9df;
   --cover-ink: #fffaf0;
-  --shadow: 0 14px 34px rgb(43 47 38 / 7%);
+  --shadow: 0 14px 34px rgb(43 47 38 / 0.07);
 
   min-height: 100vh;
   color: var(--text);
   background: var(--page);
-  transition: color 220ms ease, background-color 220ms ease;
+  transition:
+    color 220ms ease,
+    background-color 220ms ease;
 }
 
 .store[data-theme='dark'] {
@@ -64,7 +65,7 @@ a:focus-visible {
   --accent: #b7c8a8;
   --accent-soft: #344139;
   --cover-ink: #fbf6e9;
-  --shadow: 0 14px 34px rgb(0 0 0 / 20%);
+  --shadow: 0 14px 34px rgb(0 0 0 / 0.2);
 }
 
 .site-header,
@@ -91,7 +92,7 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.brand__mark {
+.brand-mark {
   display: grid;
   width: 34px;
   height: 34px;
@@ -104,14 +105,14 @@ a:focus-visible {
   font-weight: 700;
 }
 
-.brand__name {
+.brand-name {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -1.2px;
 }
 
-.site-header__note {
+.site-header-note {
   margin: 0 auto 0 24px;
   color: var(--muted);
   font-size: 12px;
@@ -130,7 +131,10 @@ a:focus-visible {
   background: var(--surface);
   cursor: pointer;
   font-size: 13px;
-  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
 .theme-toggle:hover {
@@ -138,7 +142,7 @@ a:focus-visible {
   border-color: var(--accent);
 }
 
-.theme-toggle__icon {
+.theme-toggle-icon {
   color: var(--accent);
   font-size: 18px;
   line-height: 1;
@@ -174,7 +178,7 @@ a:focus-visible {
   line-height: 1.04;
 }
 
-.intro__description {
+.intro-description {
   max-width: 430px;
   margin: 0;
   color: var(--muted);
@@ -182,7 +186,7 @@ a:focus-visible {
   line-height: 1.7;
 }
 
-.intro__meta {
+.intro-meta {
   display: flex;
   align-items: center;
   gap: 11px;
@@ -195,7 +199,7 @@ a:focus-visible {
   padding-bottom: 75px;
 }
 
-.catalog__heading {
+.catalog-heading {
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -203,7 +207,7 @@ a:focus-visible {
   margin-bottom: 22px;
 }
 
-.catalog__heading h2 {
+.catalog-heading h2 {
   margin: 7px 0 0;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 30px;
@@ -211,7 +215,7 @@ a:focus-visible {
   letter-spacing: -0.03em;
 }
 
-.catalog__count {
+.catalog-count {
   padding-bottom: 5px;
   color: var(--muted);
   font-size: 12px;
@@ -234,7 +238,10 @@ a:focus-visible {
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
-  transition: transform 180ms ease, border-color 180ms ease, background-color 220ms ease;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 220ms ease;
 }
 
 .book-card:hover {
@@ -257,7 +264,7 @@ a:focus-visible {
 .book-cover::after {
   position: absolute;
   z-index: -1;
-  border: 1px solid rgb(255 255 255 / 30%);
+  border: 1px solid rgb(255 255 255 / 0.3);
   border-radius: 50%;
   content: '';
 }
@@ -296,22 +303,22 @@ a:focus-visible {
   background: linear-gradient(140deg, #8c788b, #554b67);
 }
 
-.book-cover__ornament {
+.book-cover-ornament {
   position: absolute;
   top: 18px;
   right: 21px;
-  color: rgb(255 250 240 / 70%);
+  color: rgb(255 250 240 / 0.7);
   font-size: 22px;
 }
 
-.book-cover__initials {
+.book-cover-initials {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 54px;
   letter-spacing: 0.04em;
-  text-shadow: 0 2px 12px rgb(0 0 0 / 15%);
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.15);
 }
 
-.book-cover__number {
+.book-cover-number {
   position: absolute;
   bottom: 15px;
   left: 20px;
@@ -319,14 +326,14 @@ a:focus-visible {
   letter-spacing: 0.14em;
 }
 
-.book-card__content {
+.book-card-content {
   display: flex;
   min-height: 211px;
   flex-direction: column;
   padding: 19px 20px 17px;
 }
 
-.book-card__genre {
+.book-card-genre {
   margin: 0 0 9px;
   color: var(--accent);
   font-size: 10px;
@@ -335,7 +342,7 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.book-card__title {
+.book-card-title {
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 20px;
@@ -343,20 +350,20 @@ a:focus-visible {
   line-height: 1.2;
 }
 
-.book-card__author {
+.book-card-author {
   margin: 6px 0 0;
   color: var(--muted);
   font-size: 12px;
 }
 
-.book-card__description {
+.book-card-description {
   margin: 13px 0 18px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.55;
 }
 
-.book-card__footer {
+.book-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -366,12 +373,12 @@ a:focus-visible {
   border-top: 1px solid var(--line);
 }
 
-.book-card__price {
+.book-card-price {
   font-size: 14px;
   font-weight: 700;
 }
 
-.book-card__availability {
+.book-card-availability {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -379,7 +386,7 @@ a:focus-visible {
   font-size: 10px;
 }
 
-.book-card__availability span {
+.book-card-availability span {
   color: var(--accent);
   font-size: 8px;
 }
@@ -405,13 +412,13 @@ a:focus-visible {
   color: var(--accent);
 }
 
-@media (max-width: 800px) {
+@media (width <= 800px) {
   .book-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 560px) {
+@media (width <= 560px) {
   .site-header,
   .page-content,
   .site-footer {
@@ -423,7 +430,7 @@ a:focus-visible {
     gap: 12px;
   }
 
-  .site-header__note {
+  .site-header-note {
     display: none;
   }
 
@@ -446,7 +453,7 @@ a:focus-visible {
     font-size: clamp(39px, 11vw, 54px);
   }
 
-  .catalog__heading h2 {
+  .catalog-heading h2 {
     font-size: 25px;
   }
 
@@ -467,5 +474,3 @@ a:focus-visible {
     padding-block: 15px;
   }
 }
-
-

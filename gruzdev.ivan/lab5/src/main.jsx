@@ -6,7 +6,9 @@ const ThemeContext = createContext(null);
 
 function getSavedTheme() {
   try {
-    return localStorage.getItem('book-store-theme') === 'dark' ? 'dark' : 'light';
+    return localStorage.getItem('book-store-theme') === 'dark'
+      ? 'dark'
+      : 'light';
   } catch {
     return 'light';
   }
@@ -71,7 +73,8 @@ const books = [
     author: 'Дэниел Киз',
     genre: 'Научная фантастика',
     price: 680,
-    description: 'История Чарли Гордона, меняющая взгляд на интеллект и доброту.',
+    description:
+      'История Чарли Гордона, меняющая взгляд на интеллект и доброту.',
     cover: 'cover-blue',
     initials: 'ЦЭ',
   },
@@ -101,7 +104,8 @@ const books = [
     author: 'Рэй Брэдбери',
     genre: 'Проза',
     price: 650,
-    description: 'Лето, которое навсегда остаётся в памяти двенадцатилетнего Дугласа.',
+    description:
+      'Лето, которое навсегда остаётся в памяти двенадцатилетнего Дугласа.',
     cover: 'cover-lilac',
     initials: 'ВО',
   },
@@ -120,7 +124,7 @@ function ThemeToggle() {
       aria-label={`Включить ${nextTheme === 'dark' ? 'тёмную' : 'светлую'} тему`}
       title={`Включить ${nextTheme === 'dark' ? 'тёмную' : 'светлую'} тему`}
     >
-      <span className="theme-toggle__icon" aria-hidden="true">
+      <span className="theme-toggle-icon" aria-hidden="true">
         {theme === 'light' ? '☾' : '☀'}
       </span>
       <span>{theme === 'light' ? 'Тёмная тема' : 'Светлая тема'}</span>
@@ -137,24 +141,24 @@ function BookCard({book, index}) {
           role="img"
           aria-label={`Иллюстрация для книги «${book.title}»`}
         >
-          <span className="book-cover__ornament" aria-hidden="true">
+          <span className="book-cover-ornament" aria-hidden="true">
             ✳
           </span>
-          <span className="book-cover__initials" aria-hidden="true">
+          <span className="book-cover-initials" aria-hidden="true">
             {book.initials}
           </span>
-          <span className="book-cover__number" aria-hidden="true">
+          <span className="book-cover-number" aria-hidden="true">
             {String(index + 1).padStart(2, '0')}
           </span>
         </div>
-        <div className="book-card__content">
-          <p className="book-card__genre">{book.genre}</p>
-          <h2 className="book-card__title">{book.title}</h2>
-          <p className="book-card__author">{book.author}</p>
-          <p className="book-card__description">{book.description}</p>
-          <div className="book-card__footer">
-            <span className="book-card__price">{book.price} ₽</span>
-            <span className="book-card__availability">
+        <div className="book-card-content">
+          <p className="book-card-genre">{book.genre}</p>
+          <h2 className="book-card-title">{book.title}</h2>
+          <p className="book-card-author">{book.author}</p>
+          <p className="book-card-description">{book.description}</p>
+          <div className="book-card-footer">
+            <span className="book-card-price">{book.price} ₽</span>
+            <span className="book-card-availability">
               <span aria-hidden="true">●</span> В наличии
             </span>
           </div>
@@ -171,21 +175,30 @@ function BookStore() {
     <div className="store" data-theme={theme}>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Лист — на главную">
-          <span className="brand__mark" aria-hidden="true">л.</span>
-          <span className="brand__name">лист</span>
+          <span className="brand-mark" aria-hidden="true">
+            л.
+          </span>
+          <span className="brand-name">лист</span>
         </a>
-        <p className="site-header__note">книги для долгих вечеров</p>
+        <p className="site-header-note">книги для долгих вечеров</p>
         <ThemeToggle />
       </header>
 
       <main className="page-content" id="top">
         <section className="intro" aria-labelledby="page-title">
-          <p className="eyebrow"><span aria-hidden="true">✳</span> Книжная лавка</p>
-          <h1 id="page-title">Истории, которые<br />остаются с вами.</h1>
-          <p className="intro__description">
-            Собрали книги, к которым хочется возвращаться. Выберите свою следующую.
+          <p className="eyebrow">
+            <span aria-hidden="true">✳</span> Книжная лавка
           </p>
-          <div className="intro__meta">
+          <h1 id="page-title">
+            Истории, которые
+            <br />
+            остаются с вами.
+          </h1>
+          <p className="intro-description">
+            Собрали книги, к которым хочется возвращаться. Выберите свою
+            следующую.
+          </p>
+          <div className="intro-meta">
             <span>Небольшая подборка</span>
             <span aria-hidden="true">·</span>
             <span>{books.length} книг</span>
@@ -193,12 +206,12 @@ function BookStore() {
         </section>
 
         <section className="catalog" aria-labelledby="catalog-title">
-          <div className="catalog__heading">
+          <div className="catalog-heading">
             <div>
               <p className="eyebrow">Тихие открытия</p>
               <h2 id="catalog-title">На книжной полке</h2>
             </div>
-            <span className="catalog__count">01 — 0{books.length}</span>
+            <span className="catalog-count">01 — 0{books.length}</span>
           </div>
           <ul className="book-list" data-testid="book-list">
             {books.map((book, index) => (
@@ -209,7 +222,9 @@ function BookStore() {
       </main>
 
       <footer className="site-footer">
-        <span>лист <span aria-hidden="true">✳</span> книжная лавка</span>
+        <span>
+          лист <span aria-hidden="true">✳</span> книжная лавка
+        </span>
         <span>Найдите время для хорошей истории.</span>
       </footer>
     </div>
@@ -231,4 +246,3 @@ if (!rootElement) {
 }
 
 createRoot(rootElement).render(<App />);
-
