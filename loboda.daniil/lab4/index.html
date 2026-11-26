@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Путешествия — лабораторная №4</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <p class="subtitle">Лабораторная работа №4 · Вариант 15</p>
+        <h1>Путешествия</h1>
+        <p>Ведите список путешественников и посещённых стран.</p>
+      </header>
+
+      <section class="panel" aria-labelledby="create-title">
+        <h2 id="create-title">Добавить путешествие</h2>
+        <form id="travel-form" class="travel-form" data-testid="entity-form">
+          <label>
+            ID
+            <input
+              id="travel-id"
+              type="number"
+              min="1"
+              step="1"
+              required
+              name="id"
+            />
+          </label>
+          <label>
+            Имя путешественника
+            <input
+              id="traveler-name"
+              type="text"
+              maxlength="100"
+              required
+              name="travelerName"
+            />
+          </label>
+          <button type="submit">Добавить путешествие</button>
+        </form>
+      </section>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+
+      <section aria-labelledby="list-title">
+        <div class="list-heading">
+          <h2 id="list-title">Список путешествий</h2>
+          <p>Всего записей: <span id="total-count">0</span></p>
+        </div>
+        <p id="empty-message" class="empty-message">
+          Пока здесь пусто. Добавьте первое путешествие через форму выше.
+        </p>
+        <div
+          id="travel-list"
+          class="travel-list"
+          data-testid="entity-list"
+        ></div>
+      </section>
+    </main>
+
+    <template id="travel-card-template">
+      <article class="travel-card" data-testid="entity-card">
+        <header class="card-header">
+          <div>
+            <p class="travel-id"></p>
+            <h3 class="traveler-name">Путешественник</h3>
+          </div>
+          <p class="count-badge">Стран: <span class="visited-count"></span></p>
+        </header>
+        <ul class="country-list"></ul>
+        <form class="country-form">
+          <label>
+            Название страны
+            <input class="country-input" type="text" maxlength="100" required />
+          </label>
+          <button type="submit">Добавить страну</button>
+        </form>
+        <button
+          class="delete-travel danger"
+          type="button"
+          data-testid="delete-entity"
+        >
+          Удалить путешествие
+        </button>
+      </article>
+    </template>
+  </body>
+</html>
