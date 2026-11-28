@@ -1,0 +1,178 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #192722;
+  background: #f4f6f1;
+
+  --muted: #4d5e54;
+  --line: #dce3da;
+  --accent: #225b44;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.workspace {
+  width: min(100% - 2rem, 54rem);
+  margin: 3rem auto;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.1;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
+h3,
+p {
+  margin: 0;
+}
+
+.panel {
+  padding: clamp(1rem, 4vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.team-form,
+.member-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.member-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+input,
+button {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #889a90;
+  border-radius: 0.5rem;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  border-color: transparent;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+button:hover:not(:disabled) {
+  background: #184332;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.danger {
+  background: #fff3f0;
+  color: #8c3025;
+}
+
+.danger:hover:not(:disabled) {
+  background: #fbe1db;
+}
+
+.status {
+  min-height: 2.75rem;
+  padding-block: 0.5rem;
+}
+
+.status,
+.team-count,
+.empty-list,
+.empty-members,
+.members span {
+  color: var(--muted);
+}
+
+.team-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card-header,
+.members li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.team-card {
+  overflow-wrap: anywhere;
+}
+
+.team-count {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.empty-members {
+  margin-block: 1rem;
+}
+
+.members {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.members:empty {
+  display: none;
+}
+
+.members li {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.members span {
+  display: block;
+}
+
+@media (width < 40rem) {
+  .workspace {
+    margin-block: 1.5rem;
+  }
+
+  .team-form,
+  .member-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

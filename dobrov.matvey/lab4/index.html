@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Команды и участники</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="workspace">
+      <header>
+        <h1>Команды и участники</h1>
+      </header>
+
+      <form class="team-form panel" data-testid="entity-form">
+        <label>
+          Название команды
+          <input type="text" name="name" required maxlength="80" />
+        </label>
+        <button type="submit">Добавить команду</button>
+      </form>
+      <p class="status" id="status" role="status"></p>
+
+      <section aria-labelledby="teams-heading">
+        <h2 id="teams-heading">Список команд</h2>
+        <p id="empty-list" class="empty-list">Команд пока нет.</p>
+        <div class="team-list" data-testid="entity-list"></div>
+      </section>
+
+      <template id="team-template">
+        <article class="panel team-card" data-testid="entity-card">
+          <header class="card-header">
+            <div>
+              <h3 class="team-name">Команда</h3>
+              <p class="team-count"></p>
+            </div>
+            <button class="danger" type="button" data-testid="delete-entity">
+              Удалить команду
+            </button>
+          </header>
+          <p class="empty-members">В команде пока нет участников.</p>
+          <ul class="members" aria-label="Участники команды"></ul>
+          <form class="member-form">
+            <label>
+              Имя участника
+              <input type="text" name="name" required maxlength="80" />
+            </label>
+            <label>
+              Роль
+              <input type="text" name="role" required maxlength="80" />
+            </label>
+            <button type="submit">Добавить участника</button>
+          </form>
+        </article>
+      </template>
+    </main>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
